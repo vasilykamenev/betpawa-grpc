@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option java_package = "com.pawa.server.model.wallet";
+
+
+enum Currency {
+    EUR = 0;
+    USD = 1;
+    GBP = 2;
+}
+
+message DepositRequest {
+    int64 userId = 1;
+    double amount = 2;
+    Currency currency = 3;
+}
+
+message DepositResponse {
+}
+
+service Deposit {
+    rpc Deposit (DepositRequest) returns (DepositResponse) {
+    }
+}
+
+message WithdrawRequest {
+    int64 userId = 1;
+    double amount = 2;
+    Currency currency = 3;
+}
+
+message WithdrawResponse {
+}
+
+service Withdraw {
+    rpc Withdraw (WithdrawRequest) returns (WithdrawResponse) {
+    }
+}
+
+message BalanceRequest {
+    int64 userId = 1;
+}
+
+message BalanceResponse {
+
+    message UserWallet {
+        int64 userId = 1;
+        double amount = 2;
+        Currency currency = 3;
+    }
+
+    repeated UserWallet wallet = 1;
+}
+
+service Balance {
+    rpc Balance (BalanceRequest) returns (BalanceResponse) {
+    }
+}

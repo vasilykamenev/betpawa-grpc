@@ -1,0 +1,41 @@
+# Datasource properties
+spring:
+  datasource:
+    url: jdbc:log4jdbc:postgresql://<< set host >:5432/<<db name>>
+    username: <<user>>
+    password: <<password>>
+    driverClassName: net.sf.log4jdbc.DriverSpy
+  # Turn Statistics on
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: false
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+    # Hibernate properties
+    # Show all queries
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  #flyway
+  flyway:
+    locations: classpath:db.manager
+
+#log
+logging:
+  level:
+    jdbc:
+      sqlonly: OFF
+      sqltiming: OFF
+      audit: OFF
+      resultset: OFF
+      connection: OFF
+      resultsettable: OFF
+    com:
+      betpawa:
+        server: TRACE
+#grpc
+grpc:
+  enableReflection: true

@@ -1,0 +1,45 @@
+# Datasource properties
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driverClassName: org.h2.Driver #net.sf.log4jdbc.DriverSpyd
+
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: false
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.H2Dialect
+
+    # Hibernate properties
+    # Show all queries
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  #flyway
+  flyway:
+    locations: classpath:db.manager
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+#log
+logging:
+  level:
+    jdbc:
+      sqlonly: OFF
+      sqltiming: OFF
+      audit: OFF
+      resultset: OFF
+      connection: OFF
+      resultsettable: OFF
+    com:
+      betpawa:
+        server: TRACE
+#grpc
+grpc:
+  enableReflection: true
