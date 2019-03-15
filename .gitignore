@@ -1,0 +1,35 @@
+#
+# IDE
+#
+.classpath
+.project
+.settings
+.springBeans
+.factorypath
+.idea/**
+*.iml
+#
+# MAVEN
+#
+target/
+#
+# GRADLE
+#
+**/build/**
+**/.gradle/**
+**/coverage/**
+**/*Api.java
+**/*.versionsBackup
+*.log
+**/build-cache/**
+**/.gitconfig
+gradlew
+gradlew.bat
+gradle/**
+**/rebel.xml
+**/out/**
+!.idea/checkstyle-idea.xml
+!.idea/codeStyleSettings.xml
+!.idea/kn_checkstyle.xml
+!.idea/kn_inspections.xml
+**/*local.properties
